@@ -1,0 +1,79 @@
+.root {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: white;
+}
+
+.menu-bar {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: white;
+}
+
+.menu {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: white;
+}
+
+.context-menu, .menu-item {
+    -fx-background-color: #3c3f41; /* Тёмный фон */
+    -fx-text-fill: white; /* Белый текст */
+}
+
+.menu-item:hover {
+    -fx-background-color: #555555;
+}
+
+.context-menu {
+    -fx-border-color: #3c3f41;
+}
+
+.label {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: transparent; /* Убираем рамки */
+}
+
+.text-field, .text-area {
+    -fx-background-color: #3c3f41; /* Тёмный фон */
+    -fx-text-fill: white; /* Белый текст */
+    -fx-border-color: #6c6f73; /* Цвет рамки */
+}
+
+.text-area .content {
+    -fx-background-color: #3c3f41; /* Тёмный фон для текста внутри */
+}
+
+
+.button {
+    -fx-background-color: #555555;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #6c6f73;
+}
+
+.check-box .box, .radio-button .radio {
+    -fx-background-color: #555555;
+    -fx-border-color: transparent;  /* Убираем рамки */
+    -fx-background-radius: 4;
+}
+
+
+.check-box:selected .box, .radio-button:selected .radio {
+    -fx-background-color: #FFFFFF;  /* Белый цвет для выбранных элементов */
+}
+
+.check-box:hover .box, .radio-button:hover .radio {
+    -fx-background-color: #888888;  /* Светло-серый цвет при наведении */
+    -fx-border-color: transparent;  /* Без рамок */
+}
+
+.check-box {
+    -fx-content-display: right; /* Галочка справа */
+    -fx-text-fill: white; /* Белый текст */
+}
