@@ -1,4 +1,4 @@
-module ru.sortix.encryptions {
+module ru.sortix.encryption {
     requires javafx.controls;
     requires javafx.fxml;
 
