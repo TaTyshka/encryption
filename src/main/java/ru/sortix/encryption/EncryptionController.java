@@ -1,7 +1,10 @@
 package ru.sortix.encryption;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.util.StringConverter;
 import javafx.util.converter.IntegerStringConverter;
 
@@ -12,6 +15,14 @@ public class EncryptionController {
     public Label keyTextLabel;
     @FXML
     public CheckBox includeUpperCaseCheckBox;
+    @FXML
+    public Button encryptTextButton;
+    @FXML
+    public Button decryptTextButton;
+    @FXML
+    public Button encryptDecryptButton;
+    @FXML
+    public HBox buttonsBox;
     @FXML
     private TextField inputTextField;
     @FXML
@@ -35,15 +46,16 @@ public class EncryptionController {
 
     private EncryptionAlgorithm currentAlgorithm = new CaesarAlgorithm("", 0);
 
-    private final String engAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    private final String rusAlphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
-    private final String punctuation = ".,!?";
-    private final String space = " ";
+    private static final String engAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    private static final String rusAlphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+    private static final String punctuation = ".,!?";
+    private static final String space = " ";
 
     public void initialize() {
         setKeyInputFilter();
         setupRadioButtons();
         updateAlphabets();
+        switchToTwoButtons();
         encryptSpacesCheckBox.setOnAction(e -> updateAlphabets());
         encryptPunctuationCheckBox.setOnAction(e -> updateAlphabets());
         includeUpperCaseCheckBox.setOnAction(e -> updateAlphabets());
@@ -58,14 +70,14 @@ public class EncryptionController {
         if (currentAlgorithm instanceof CaesarAlgorithm caesarAlgorithm) {
             UnaryOperator<TextFormatter.Change> filter = change -> {
                 String newText = change.getControlNewText();
-                if (newText.isEmpty()) {
+                if (newText.isEmpty() || newText.equals("-")) {
                     caesarAlgorithm.setShift(0);
                     return change;
                 }
-                if (newText.matches("\\d*")) {
+                if (newText.matches("-?\\d*")) {
                     try {
                         int key = Integer.parseInt(newText);
-                        if (key >= 0 && key < getSelectedAlphabet().length()) {
+                        if (Math.abs(key) < getSelectedAlphabet().length()) {
                             caesarAlgorithm.setShift(key);
                             return change;
                         }
@@ -135,7 +147,7 @@ public class EncryptionController {
             showError("Введите текст для шифрования.");
             return;
         }
-        if (keyTextField.getText().isEmpty()) {
+        if (keyTextField.isVisible() && keyTextField.getText().isEmpty()) {
             showError("Введите корректный ключ.");
             return;
         }
@@ -150,7 +162,7 @@ public class EncryptionController {
             showError("Введите текст для расшифровки.");
             return;
         }
-        if (keyTextField.getText().isEmpty()) {
+        if (keyTextField.isVisible() && keyTextField.getText().isEmpty()) {
             showError("Введите корректный ключ.");
             return;
         }
@@ -161,6 +173,8 @@ public class EncryptionController {
     public void switchToCaesar() {
         keyTextField.setVisible(true);
         keyTextLabel.setVisible(true);
+        switchToTwoButtons();
+        encryptDecryptButton.setVisible(false);
         currentAlgorithm = new CaesarAlgorithm(getSelectedAlphabet(), 0);
         keyTextField.setText("0");
         setKeyInputFilter();
@@ -170,7 +184,21 @@ public class EncryptionController {
     public void switchToAtbash() {
         keyTextField.setVisible(false);
         keyTextLabel.setVisible(false);
+        switchToSingleButton();
+        encryptDecryptButton.setVisible(true);
         currentAlgorithm = new AtbashAlgorithm(getSelectedAlphabet());
         updateShiftedAlphabet();
+    }
+
+    private void switchToSingleButton() {
+        buttonsBox.getChildren().clear();
+        buttonsBox.getChildren().add(encryptDecryptButton);
+        buttonsBox.setAlignment(Pos.CENTER);
+    }
+
+    private void switchToTwoButtons() {
+        buttonsBox.getChildren().clear();
+        buttonsBox.getChildren().addAll(encryptTextButton, decryptTextButton);
+        buttonsBox.setAlignment(Pos.CENTER);
     }
 }

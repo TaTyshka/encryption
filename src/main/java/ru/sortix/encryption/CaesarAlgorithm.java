@@ -15,11 +15,7 @@ public class CaesarAlgorithm implements EncryptionAlgorithm {
 
     @Override
     public String getShiftedAlphabet() {
-        StringBuilder shifted = new StringBuilder(alphabet.length());
-        for (int i = 0; i < alphabet.length(); i++) {
-            shifted.append(alphabet.charAt((i + shift) % alphabet.length()));
-        }
-        return shifted.toString();
+        return caesarCipher(alphabet, shift);
     }
 
     @Override
@@ -41,8 +37,7 @@ public class CaesarAlgorithm implements EncryptionAlgorithm {
         StringBuilder result = new StringBuilder();
         int alphabetLength = alphabet.length();
 
-        for (int i = 0; i < text.length(); i++) {
-            char c = text.charAt(i);
+        for (char c : text.toCharArray()) {
             int pos = alphabet.indexOf(c);
 
             if (pos != -1) {
