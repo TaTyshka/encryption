@@ -4,6 +4,7 @@ plugins {
     id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
+    id 'edu.sc.seis.launch4j' version '3.0.6'
 }
 
 group 'ru.sortix'
@@ -70,4 +71,11 @@ jlink {
 
 jlinkZip {
     group = 'distribution'
+}
+
+launch4j {
+    mainClassName = application.mainClass
+    requiresJdk = true // Использование JRE, если он есть
+    bundledJrePath = "$buildDir/image/bin/java"
+    requires64Bit = true
 }

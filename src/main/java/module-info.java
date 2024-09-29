@@ -9,4 +9,14 @@ module ru.sortix.encryption {
 
     opens ru.sortix.encryption to javafx.fxml;
     exports ru.sortix.encryption;
+    exports ru.sortix.encryption.controller;
+    opens ru.sortix.encryption.controller to javafx.fxml;
+    exports ru.sortix.encryption.controller.simple;
+    opens ru.sortix.encryption.controller.simple to javafx.fxml;
+    exports ru.sortix.encryption.algorithm.simple;
+    opens ru.sortix.encryption.algorithm.simple to javafx.fxml;
+    exports ru.sortix.encryption.controller.table;
+    opens ru.sortix.encryption.controller.table to javafx.fxml;
+    exports ru.sortix.encryption.algorithm.table;
+    opens ru.sortix.encryption.algorithm.table to javafx.fxml;
 }

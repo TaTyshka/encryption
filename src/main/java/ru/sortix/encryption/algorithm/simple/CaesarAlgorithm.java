@@ -1,4 +1,6 @@
-package ru.sortix.encryption;
+package ru.sortix.encryption.algorithm.simple;
+
+import ru.sortix.encryption.EncryptionAlgorithm;
 
 public class CaesarAlgorithm implements EncryptionAlgorithm {
     private String alphabet;

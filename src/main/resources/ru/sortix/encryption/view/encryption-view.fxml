@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:controller="ru.sortix.encryption.controller.EncryptionController"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@../styles/dark-theme.css">
+
+    <top>
+        <HBox alignment="CENTER" spacing="10">
+            <!-- Менюбар слева -->
+            <MenuBar>
+                <Menu text="Режимы шифрования">
+                    <!-- Подменю для простых шифров -->
+                    <Menu text="Простые">
+                        <MenuItem onAction="#switchToCaesar" text="Цезарь" />
+                        <MenuItem onAction="#switchToAtbash" text="Атбаш" />
+                    </Menu>
+                    <!-- Подменю для табличных шифров -->
+                    <Menu text="Табличные">
+                        <MenuItem onAction="#switchToRouteCipher" text="Маршрутный шифр" />
+                        <MenuItem onAction="#switchToFleissnerCipher" text="Шифр Флейснера" />
+                        <MenuItem onAction="#switchToVigenereCipher" text="Шифр Виженера" />
+                    </Menu>
+                </Menu>
+            </MenuBar>
+
+            <!-- Пространство между MenuBar и Label, чтобы выровнять Label по центру -->
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Label для отображения текущего режима по центру -->
+            <Label fx:id="currentModeLabel" alignment="CENTER" style="-fx-font-size: 12px;" />
+        </HBox>
+    </top>
+
+    <center>
+        <!-- ScrollPane, чтобы добавлять прокрутку при необходимости -->
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox alignment="CENTER" spacing="10">
+                <!-- StackPane используется для динамической подгрузки содержимого -->
+                <StackPane fx:id="contentPane" />
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

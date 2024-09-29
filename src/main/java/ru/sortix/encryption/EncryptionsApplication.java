@@ -15,8 +15,8 @@ public class EncryptionsApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         mainStage = primaryStage;
-        primaryStage.getIcons().add(new Image(Objects.requireNonNull(EncryptionsApplication.class.getResourceAsStream("/icon.png"))));
-        setRoot("encryption-view");
+        primaryStage.getIcons().add(new Image(Objects.requireNonNull(EncryptionsApplication.class.getResourceAsStream("images/icon.png"))));
+        setRoot("view/encryption-view");
         primaryStage.setTitle("Шифрование");
         primaryStage.show();
     }

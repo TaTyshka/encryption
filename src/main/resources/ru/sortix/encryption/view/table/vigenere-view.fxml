@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.sortix.encryption.controller.table.VigenereCipherController"
+      alignment="CENTER" spacing="10">
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Сообщение:"/>
+        <TextField fx:id="messageField" promptText="Введите сообщение" maxWidth="300"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Пароль:"/>
+        <TextField fx:id="keyField" promptText="Введите пароль" maxWidth="200"/>
+    </HBox>
+
+    <Label text="Сообщение и пароль:"/>
+    <GridPane fx:id="vigenereTable" gridLinesVisible="true" hgap="5" vgap="5" alignment="CENTER"/>
+
+    <Label text="Результат:"/>
+    <TextArea fx:id="resultTextArea" prefRowCount="3" prefColumnCount="20" editable="false"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Зашифровать" onAction="#encrypt"/>
+        <Button text="Дешифровать" onAction="#decrypt"/>
+    </HBox>
+</VBox>
