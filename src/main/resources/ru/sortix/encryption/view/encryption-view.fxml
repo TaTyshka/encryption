@@ -25,6 +25,7 @@
                         <MenuItem onAction="#switchToFleissnerCipher" text="Шифр Флейснера" />
                         <MenuItem onAction="#switchToVigenereCipher" text="Шифр Виженера" />
                     </Menu>
+                    <MenuItem onAction="#switchToGammaCipher" text="Гамма шифр" />
                 </Menu>
             </MenuBar>
 

@@ -47,6 +47,12 @@ public class EncryptionController {
         currentModeLabel.setText("Шифр Виженера");
     }
 
+    @FXML
+    private void switchToGammaCipher() {
+        loadEncryptionView("view/gamma/gamma-view.fxml");
+        currentModeLabel.setText("Гамма шифр");
+    }
+
     private void loadEncryptionView(String fxmlFilePath) {
         try {
             FXMLLoader loader = new FXMLLoader(EncryptionsApplication.class.getResource(fxmlFilePath));
