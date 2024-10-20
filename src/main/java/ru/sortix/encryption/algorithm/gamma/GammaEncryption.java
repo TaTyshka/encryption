@@ -1,6 +1,6 @@
 package ru.sortix.encryption.algorithm.gamma;
 
-import ru.sortix.encryption.EncryptionAlgorithm;
+import ru.sortix.encryption.algorithm.EncryptionAlgorithm;
 
 public class GammaEncryption implements EncryptionAlgorithm {
 
@@ -68,15 +68,5 @@ public class GammaEncryption implements EncryptionAlgorithm {
     // Увеличение гаммы до длины текста
     public String extendGamma(String input) {
         return gamma.repeat((input.length() / gamma.length()) + 1).substring(0, input.length());
-    }
-
-    @Override
-    public void setAlphabet(String alphabet) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public String getShiftedAlphabet() {
-        throw new UnsupportedOperationException();
     }
 }

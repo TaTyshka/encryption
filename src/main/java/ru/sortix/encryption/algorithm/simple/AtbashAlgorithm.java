@@ -1,8 +1,8 @@
 package ru.sortix.encryption.algorithm.simple;
 
-import ru.sortix.encryption.EncryptionAlgorithm;
+import ru.sortix.encryption.algorithm.EncryptionAlgorithm;
 
-public class AtbashAlgorithm implements EncryptionAlgorithm {
+public class AtbashAlgorithm implements SimpleEncryptionAlgorithm {
 
     private String alphabet = "";
     private String reversedAlphabet = "";

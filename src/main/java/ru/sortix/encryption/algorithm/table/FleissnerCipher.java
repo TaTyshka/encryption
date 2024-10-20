@@ -1,8 +1,6 @@
 package ru.sortix.encryption.algorithm.table;
 
-import ru.sortix.encryption.EncryptionAlgorithm;
-
-import java.util.Comparator;
+import ru.sortix.encryption.algorithm.EncryptionAlgorithm;
 
 public class FleissnerCipher implements EncryptionAlgorithm {
     private final int[][] grid;
@@ -45,16 +43,6 @@ public class FleissnerCipher implements EncryptionAlgorithm {
         }
 
         return result.reverse().toString();
-    }
-
-    @Override
-    public void setAlphabet(String alphabet) {
-        // Оставлено пустым
-    }
-
-    @Override
-    public String getShiftedAlphabet() {
-        return "";
     }
 
     // Преобразование строки в 2k x 2k матрицу

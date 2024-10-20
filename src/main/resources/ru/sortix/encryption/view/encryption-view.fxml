@@ -26,6 +26,12 @@
                         <MenuItem onAction="#switchToVigenereCipher" text="Шифр Виженера" />
                     </Menu>
                     <MenuItem onAction="#switchToGammaCipher" text="Гамма шифр" />
+                    <Menu text="Евклид">
+                        <MenuItem onAction="#switchToClassicEuclid" text="Обычный" />
+                        <MenuItem onAction="#switchToBinaryEuclid" text="Бинарный" />
+                        <MenuItem onAction="#switchToExtendedEuclid" text="Расширенный" />
+                        <MenuItem onAction="#switchToExtendedBinaryEuclid" text="Расширенный бинарный" />
+                    </Menu>
                 </Menu>
             </MenuBar>
 

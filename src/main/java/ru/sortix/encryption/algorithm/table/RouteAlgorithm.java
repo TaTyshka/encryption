@@ -1,6 +1,6 @@
 package ru.sortix.encryption.algorithm.table;
 
-import ru.sortix.encryption.EncryptionAlgorithm;
+import ru.sortix.encryption.algorithm.EncryptionAlgorithm;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -94,15 +94,5 @@ public class RouteAlgorithm implements EncryptionAlgorithm {
         }
 
         return decryptedText.toString().trim();
-    }
-
-    @Override
-    public void setAlphabet(String alphabet) {
-
-    }
-
-    @Override
-    public String getShiftedAlphabet() {
-        return "";
     }
 }

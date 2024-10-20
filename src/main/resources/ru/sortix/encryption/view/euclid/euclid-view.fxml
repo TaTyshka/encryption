@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.sortix.encryption.controller.euclid.EuclidEncryptionController"
+      alignment="CENTER" spacing="10">
+
+    <!-- Поле ввода для числа a -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите число a:"/>
+        <TextField fx:id="inputA" promptText="Введите целое число a" />
+    </HBox>
+
+    <!-- Поле ввода для числа b -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите число b:"/>
+        <TextField fx:id="inputB" promptText="Введите целое число b" />
+    </HBox>
+
+    <!-- Результат -->
+    <Label text="Результат:"/>
+    <TextArea fx:id="resultTextArea" prefRowCount="3" prefColumnCount="20" editable="false"/>
+
+    <!-- Кнопки для выполнения алгоритма -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Найти НОД" onAction="#encrypt"/>
+    </HBox>
+
+</VBox>

@@ -1,6 +1,6 @@
 package ru.sortix.encryption.algorithm.table;
 
-import ru.sortix.encryption.EncryptionAlgorithm;
+import ru.sortix.encryption.algorithm.EncryptionAlgorithm;
 
 public class VigenereCipher implements EncryptionAlgorithm {
 
@@ -56,16 +56,6 @@ public class VigenereCipher implements EncryptionAlgorithm {
         }
 
         return result.toString();
-    }
-
-    @Override
-    public void setAlphabet(String alphabet) {
-
-    }
-
-    @Override
-    public String getShiftedAlphabet() {
-        return "";
     }
 
     // Метод для генерации повторяющегося ключа

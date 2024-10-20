@@ -2,7 +2,8 @@ package ru.sortix.encryption.controller.simple;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import ru.sortix.encryption.EncryptionAlgorithm;
+import ru.sortix.encryption.algorithm.EncryptionAlgorithm;
+import ru.sortix.encryption.algorithm.simple.SimpleEncryptionAlgorithm;
 
 public abstract class SimpleController {
 
@@ -36,7 +37,7 @@ public abstract class SimpleController {
     @FXML
     protected Label shiftedAlphabetLabel;
 
-    protected EncryptionAlgorithm currentAlgorithm;
+    protected SimpleEncryptionAlgorithm currentAlgorithm;
 
     private static final String ENG_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static final String RUS_ALPHABET = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";

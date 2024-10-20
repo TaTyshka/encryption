@@ -23,4 +23,10 @@ module ru.sortix.encryption {
     opens ru.sortix.encryption.controller.gamma to javafx.fxml;
     exports ru.sortix.encryption.algorithm.gamma;
     opens ru.sortix.encryption.algorithm.gamma to javafx.fxml;
+    exports ru.sortix.encryption.controller.euclid;
+    opens ru.sortix.encryption.controller.euclid to javafx.fxml;
+    exports ru.sortix.encryption.algorithm.euclid;
+    opens ru.sortix.encryption.algorithm.euclid to javafx.fxml;
+    exports ru.sortix.encryption.algorithm;
+    opens ru.sortix.encryption.algorithm to javafx.fxml;
 }

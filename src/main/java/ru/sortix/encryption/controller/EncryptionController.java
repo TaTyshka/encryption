@@ -6,6 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import ru.sortix.encryption.EncryptionsApplication;
+import ru.sortix.encryption.algorithm.euclid.BinaryEuclidAlgorithm;
+import ru.sortix.encryption.algorithm.euclid.ClassicEuclidAlgorithm;
+import ru.sortix.encryption.algorithm.euclid.ExtendedBinaryEuclidAlgorithm;
+import ru.sortix.encryption.algorithm.euclid.ExtendedEuclidAlgorithm;
+import ru.sortix.encryption.controller.euclid.EuclidEncryptionController;
 
 import java.io.IOException;
 
@@ -53,14 +58,55 @@ public class EncryptionController {
         currentModeLabel.setText("Гамма шифр");
     }
 
-    private void loadEncryptionView(String fxmlFilePath) {
+    @FXML
+    private void switchToClassicEuclid() {
+        EuclidEncryptionController controller = (EuclidEncryptionController) loadEncryptionView("view/euclid/euclid-view.fxml");
+        if (controller != null) {
+            controller.setAlgorithm(new ClassicEuclidAlgorithm());
+            currentModeLabel.setText("Классический Евклид");
+        }
+    }
+
+    // Переключение на бинарный алгоритм Евклида
+    @FXML
+    private void switchToBinaryEuclid() {
+        EuclidEncryptionController controller = (EuclidEncryptionController) loadEncryptionView("view/euclid/euclid-view.fxml");
+        if (controller != null) {
+            controller.setAlgorithm(new BinaryEuclidAlgorithm());
+            currentModeLabel.setText("Бинарный Евклид");
+        }
+    }
+
+    @FXML
+    private void switchToExtendedEuclid() {
+        EuclidEncryptionController controller = (EuclidEncryptionController) loadEncryptionView("view/euclid/euclid-view.fxml");
+        if (controller != null) {
+            controller.setAlgorithm(new ExtendedEuclidAlgorithm());
+            currentModeLabel.setText("Расширенный Евклид");
+        }
+    }
+
+
+    @FXML
+    private void switchToExtendedBinaryEuclid() {
+        EuclidEncryptionController controller = (EuclidEncryptionController) loadEncryptionView("view/euclid/euclid-view.fxml");
+        if (controller != null) {
+            controller.setAlgorithm(new ExtendedBinaryEuclidAlgorithm());
+            currentModeLabel.setText("Расширенный бинарный Евклид");
+        }
+    }
+
+    // Метод для загрузки представления и получения контроллера
+    private Object loadEncryptionView(String fxmlFilePath) {
         try {
             FXMLLoader loader = new FXMLLoader(EncryptionsApplication.class.getResource(fxmlFilePath));
             Node encryptionView = loader.load();
             contentPane.getChildren().setAll(encryptionView);
+            return loader.getController();  // Возвращаем контроллер загруженного FXML
         } catch (IOException e) {
             e.printStackTrace();
             showError("Не удалось загрузить интерфейс шифра.");
+            return null;
         }
     }
 
