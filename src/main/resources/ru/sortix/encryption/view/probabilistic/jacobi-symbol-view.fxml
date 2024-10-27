@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.sortix.encryption.controller.probabilistic.JacobiSymbolController"
+      alignment="CENTER" spacing="10">
+
+    <!-- Поле ввода для числа a -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите число a:"/>
+        <TextField fx:id="inputA" promptText="Введите целое число a" />
+    </HBox>
+
+    <!-- Поле ввода для числа n -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите число n:"/>
+        <TextField fx:id="inputN" promptText="Введите положительное нечетное число n" />
+    </HBox>
+
+    <!-- Результат -->
+    <Label text="Результат:"/>
+    <TextArea fx:id="resultTextArea" prefRowCount="3" prefColumnCount="20" editable="false"/>
+
+    <!-- Кнопка для вычисления символа Якоби -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Вычислить символ Якоби" onAction="#calculateJacobiSymbol"/>
+    </HBox>
+
+</VBox>

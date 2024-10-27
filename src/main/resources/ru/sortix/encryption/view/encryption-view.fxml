@@ -32,6 +32,12 @@
                         <MenuItem onAction="#switchToExtendedEuclid" text="Расширенный" />
                         <MenuItem onAction="#switchToExtendedBinaryEuclid" text="Расширенный бинарный" />
                     </Menu>
+                    <Menu text="Вероятностные">
+                        <MenuItem onAction="#switchToFermat" text="Тест Ферма" />
+                        <MenuItem onAction="#switchToSolovayStrassen" text="Тест Соловэя-Штрассена" />
+                        <MenuItem onAction="#switchToMillerRabin" text="Тест Миллера-Рабина" />
+                        <MenuItem onAction="#switchToJacobiSymbol" text="Символ Якоби" />
+                    </Menu>
                 </Menu>
             </MenuBar>
 

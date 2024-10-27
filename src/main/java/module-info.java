@@ -29,4 +29,8 @@ module ru.sortix.encryption {
     opens ru.sortix.encryption.algorithm.euclid to javafx.fxml;
     exports ru.sortix.encryption.algorithm;
     opens ru.sortix.encryption.algorithm to javafx.fxml;
+    exports ru.sortix.encryption.controller.probabilistic;
+    opens ru.sortix.encryption.controller.probabilistic to javafx.fxml;
+    exports ru.sortix.encryption.algorithm.probabilistic;
+    opens ru.sortix.encryption.algorithm.probabilistic to javafx.fxml;
 }

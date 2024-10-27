@@ -10,7 +10,12 @@ import ru.sortix.encryption.algorithm.euclid.BinaryEuclidAlgorithm;
 import ru.sortix.encryption.algorithm.euclid.ClassicEuclidAlgorithm;
 import ru.sortix.encryption.algorithm.euclid.ExtendedBinaryEuclidAlgorithm;
 import ru.sortix.encryption.algorithm.euclid.ExtendedEuclidAlgorithm;
+import ru.sortix.encryption.algorithm.probabilistic.FermatTest;
+import ru.sortix.encryption.algorithm.probabilistic.MillerRabinTest;
+import ru.sortix.encryption.algorithm.probabilistic.PrimeTest;
+import ru.sortix.encryption.algorithm.probabilistic.SolovayStrassenTest;
 import ru.sortix.encryption.controller.euclid.EuclidEncryptionController;
+import ru.sortix.encryption.controller.probabilistic.PrimeTestController;
 
 import java.io.IOException;
 
@@ -94,6 +99,36 @@ public class EncryptionController {
             controller.setAlgorithm(new ExtendedBinaryEuclidAlgorithm());
             currentModeLabel.setText("Расширенный бинарный Евклид");
         }
+    }
+
+    @FXML
+    public void switchToFermat() {
+        setPrimeTestControllerAlgorithm(new FermatTest());
+        currentModeLabel.setText("Тест Ферма");
+    }
+
+    @FXML
+    public void switchToSolovayStrassen() {
+        setPrimeTestControllerAlgorithm(new SolovayStrassenTest());
+        currentModeLabel.setText("Тест Соловэя-Штрассена");
+    }
+
+    @FXML
+    public void switchToMillerRabin() {
+        setPrimeTestControllerAlgorithm(new MillerRabinTest());
+        currentModeLabel.setText("Тест Миллера-Рабина");
+    }
+
+    private void setPrimeTestControllerAlgorithm(PrimeTest primeTestAlgorithm) {
+        PrimeTestController controller = (PrimeTestController) loadEncryptionView("view/probabilistic/prime-test-view.fxml");
+        assert controller != null;
+        controller.setPrimeTestAlgorithm(primeTestAlgorithm);
+    }
+
+    @FXML
+    public void switchToJacobiSymbol() {
+        loadEncryptionView("view/probabilistic/jacobi-symbol-view.fxml");
+        currentModeLabel.setText("Символ Якоби");
     }
 
     // Метод для загрузки представления и получения контроллера
