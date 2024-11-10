@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.sortix.encryption.controller.pollard.PollardsRhoController"
+      alignment="CENTER" spacing="10">
+
+    <!-- Поле ввода для числа n -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите число n:"/>
+        <TextField fx:id="inputN" promptText="Введите число n" />
+    </HBox>
+
+    <!-- Поле ввода для начального значения c -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите начальное значение c:"/>
+        <TextField fx:id="inputC" promptText="Введите начальное значение c" />
+    </HBox>
+
+    <!-- Поле ввода для функции f(x) -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите функцию f(x):"/>
+        <TextField fx:id="inputFunction" promptText="Введите функцию f(x)" text="Math.pow(x, 2) + 5" />
+    </HBox>
+
+    <!-- Результат -->
+    <Label text="Результат:"/>
+    <TextArea fx:id="resultTextArea" prefRowCount="3" prefColumnCount="20" editable="false"/>
+
+    <!-- Кнопка для запуска алгоритма -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Найти делитель" onAction="#startPollardsRho"/>
+    </HBox>
+
+    <!-- Таблица для отображения шагов -->
+    <TableView fx:id="stepsTable" prefHeight="200" prefWidth="400">
+        <columns>
+            <TableColumn text="i" fx:id="columnI" />
+            <TableColumn text="a" fx:id="columnA" />
+            <TableColumn text="b" fx:id="columnB" />
+            <TableColumn text="d" fx:id="columnD" />
+        </columns>
+    </TableView>
+
+</VBox>

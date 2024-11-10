@@ -70,7 +70,6 @@
     -fx-background-radius: 4;
 }
 
-
 .check-box:selected .box, .radio-button:selected .radio {
     -fx-background-color: #FFFFFF;  /* Белый цвет для выбранных элементов */
 }
@@ -84,3 +83,43 @@
     -fx-content-display: right; /* Галочка справа */
     -fx-text-fill: white; /* Белый текст */
 }
+
+/* Стилизация таблицы */
+.table-view {
+    -fx-background-color: #2b2b2b;
+    -fx-control-inner-background: #2b2b2b;
+    -fx-table-cell-border-color: transparent; /* Убираем границы ячеек */
+    -fx-border-color: #3c3f41;
+    -fx-text-background-color: white;
+    -fx-selection-bar: #555555; /* Цвет фона для выделенных строк */
+    -fx-selection-bar-text: white; /* Цвет текста в выделенных строках */
+}
+
+.table-view .column-header {
+    -fx-background-color: #3c3f41; /* Фон для заголовков столбцов */
+    -fx-text-fill: white; /* Цвет текста заголовков */
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+
+.table-row-cell {
+    -fx-background-color: #2b2b2b; /* Фон строк */
+    -fx-text-fill: white; /* Цвет текста строк */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #555555; /* Фон выделенной строки */
+}
+
+.table-cell {
+    -fx-background-color: transparent; /* Фон ячеек */
+    -fx-text-fill: white; /* Цвет текста в ячейках */
+}
+
+.table-cell:selected {
+    -fx-background-color: #555555; /* Цвет выделения для ячейки */
+    -fx-text-fill: white; /* Цвет текста выделенной ячейки */
+}
+

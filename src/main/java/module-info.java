@@ -6,6 +6,7 @@ module ru.sortix.encryption {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
+    requires org.apache.commons.jexl3;
 
     opens ru.sortix.encryption to javafx.fxml;
     exports ru.sortix.encryption;
@@ -33,4 +34,8 @@ module ru.sortix.encryption {
     opens ru.sortix.encryption.controller.probabilistic to javafx.fxml;
     exports ru.sortix.encryption.algorithm.probabilistic;
     opens ru.sortix.encryption.algorithm.probabilistic to javafx.fxml;
+    exports ru.sortix.encryption.algorithm.pollard;
+    opens ru.sortix.encryption.algorithm.pollard to javafx.fxml;
+    exports ru.sortix.encryption.controller.pollard;
+    opens ru.sortix.encryption.controller.pollard to javafx.fxml;
 }

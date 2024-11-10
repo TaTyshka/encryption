@@ -131,6 +131,13 @@ public class EncryptionController {
         currentModeLabel.setText("Символ Якоби");
     }
 
+
+    @FXML
+    private void switchToPollar() {
+        loadEncryptionView("view/pollard/pollard-view.fxml");
+        currentModeLabel.setText("Поллард");
+    }
+
     // Метод для загрузки представления и получения контроллера
     private Object loadEncryptionView(String fxmlFilePath) {
         try {
