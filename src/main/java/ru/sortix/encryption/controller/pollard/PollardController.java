@@ -9,11 +9,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.apache.commons.jexl3.*;
-import ru.sortix.encryption.algorithm.pollard.PollardsRhoAlgorithm;
+import ru.sortix.encryption.algorithm.pollard.PollardFunction;
+import ru.sortix.encryption.algorithm.pollard.PollardPAlgorithm;
 
 import java.math.BigInteger;
 
-public class PollardsRhoController {
+public class PollardController {
 
     @FXML
     private TextField inputN;
@@ -28,21 +29,21 @@ public class PollardsRhoController {
     private TextArea resultTextArea;
 
     @FXML
-    private TableView<PollardsRhoAlgorithm.PollardStep> stepsTable;
+    private TableView<PollardPAlgorithm.PollardStep> stepsTable;
 
     @FXML
-    private TableColumn<PollardsRhoAlgorithm.PollardStep, Integer> columnI;
+    private TableColumn<PollardPAlgorithm.PollardStep, Integer> columnI;
 
     @FXML
-    private TableColumn<PollardsRhoAlgorithm.PollardStep, String> columnA;
+    private TableColumn<PollardPAlgorithm.PollardStep, String> columnA;
 
     @FXML
-    private TableColumn<PollardsRhoAlgorithm.PollardStep, String> columnB;
+    private TableColumn<PollardPAlgorithm.PollardStep, String> columnB;
 
     @FXML
-    private TableColumn<PollardsRhoAlgorithm.PollardStep, String> columnD;
+    private TableColumn<PollardPAlgorithm.PollardStep, String> columnD;
 
-    private ObservableList<PollardsRhoAlgorithm.PollardStep> steps = FXCollections.observableArrayList();
+    private ObservableList<PollardPAlgorithm.PollardStep> steps = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
@@ -74,7 +75,7 @@ public class PollardsRhoController {
 
             JexlEngine jexl = new JexlBuilder().create();
             JexlExpression expression = jexl.createExpression(functionInput);
-            PollardsRhoAlgorithm pollardsRho = initAlgoritm(expression, n, c);
+            PollardPAlgorithm pollardsRho = initAlgoritm(expression, n, c);
             BigInteger divisor = pollardsRho.run(steps);
 
             if (divisor.equals(n)) {
@@ -90,10 +91,10 @@ public class PollardsRhoController {
         }
     }
 
-    private static PollardsRhoAlgorithm initAlgoritm(JexlExpression expression, BigInteger n, BigInteger c) {
+    private static PollardPAlgorithm initAlgoritm(JexlExpression expression, BigInteger n, BigInteger c) {
         JexlContext context = new MapContext();
 
-        PollardsRhoAlgorithm.Function f = (x) -> {
+        PollardFunction f = x -> {
             context.set("x", x.doubleValue());
             context.set("Math", Math.class);
             Object result = expression.evaluate(context);
@@ -106,7 +107,7 @@ public class PollardsRhoController {
             }
         };
 
-        PollardsRhoAlgorithm pollardsRho = new PollardsRhoAlgorithm(n, c, f);
+        PollardPAlgorithm pollardsRho = new PollardPAlgorithm(n, c, f);
         return pollardsRho;
     }
 }

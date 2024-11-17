@@ -4,17 +4,13 @@ import javafx.collections.ObservableList;
 
 import java.math.BigInteger;
 
-public class PollardsRhoAlgorithm {
-
-    public interface Function {
-        BigInteger apply(BigInteger x);
-    }
+public class PollardPAlgorithm {
 
     private final BigInteger n;
     private final BigInteger c;
-    private final Function f;
+    private final PollardFunction f;
 
-    public PollardsRhoAlgorithm(BigInteger n, BigInteger c, Function f) {
+    public PollardPAlgorithm(BigInteger n, BigInteger c, PollardFunction f) {
         this.n = n;
         this.c = c;
         this.f = f;

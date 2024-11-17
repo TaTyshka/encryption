@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.sortix.encryption.controller.pollard.PollardLogMethodController"
+      alignment="CENTER" spacing="10">
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите p:"/>
+        <TextField fx:id="inputP" />
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите a:"/>
+        <TextField fx:id="inputA" />
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите b:"/>
+        <TextField fx:id="inputB" />
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите r:"/>
+        <TextField fx:id="inputR" />
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите функцию f(с):"/>
+        <TextField fx:id="inputFunction" promptText="Введите функцию f(с)" text="(c &lt; 53 ? 10 * c : 64 * c) % 107" />
+    </HBox>
+
+    <TextArea fx:id="resultTextArea" prefRowCount="3" prefColumnCount="20" editable="false" />
+
+    <TableView fx:id="stepsTable" prefHeight="200" prefWidth="400">
+        <columns>
+            <TableColumn text="Шаг" fx:id="columnI" />
+            <TableColumn text="c" fx:id="columnC" />
+            <TableColumn text="Log c" fx:id="columnLogC" />
+            <TableColumn text="d" fx:id="columnD" />
+            <TableColumn text="Log d" fx:id="columnLogD" />
+        </columns>
+    </TableView>
+
+    <Button text="Запуск" onAction="#startPollardPMethod"/>
+</VBox>

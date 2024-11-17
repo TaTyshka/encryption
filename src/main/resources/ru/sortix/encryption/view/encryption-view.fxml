@@ -38,7 +38,10 @@
                         <MenuItem onAction="#switchToMillerRabin" text="Тест Миллера-Рабина" />
                         <MenuItem onAction="#switchToJacobiSymbol" text="Символ Якоби" />
                     </Menu>
-                    <MenuItem onAction="#switchToPollar" text="Поллар" />
+                    <Menu text="Поллард">
+                        <MenuItem onAction="#switchToPollard" text="Обычный" />
+                        <MenuItem onAction="#switchToPollardLog" text="Логарифмирование" />
+                    </Menu>
                 </Menu>
             </MenuBar>
 

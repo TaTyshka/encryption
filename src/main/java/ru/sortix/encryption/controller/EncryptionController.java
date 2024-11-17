@@ -133,9 +133,15 @@ public class EncryptionController {
 
 
     @FXML
-    private void switchToPollar() {
+    private void switchToPollard() {
         loadEncryptionView("view/pollard/pollard-view.fxml");
         currentModeLabel.setText("Поллард");
+    }
+
+    @FXML
+    private void switchToPollardLog() {
+        loadEncryptionView("view/pollard/pollard-log-view.fxml");
+        currentModeLabel.setText("Поллард. Дискретное логарифмирование");
     }
 
     // Метод для загрузки представления и получения контроллера
