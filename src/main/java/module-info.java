@@ -38,4 +38,8 @@ module ru.sortix.encryption {
     opens ru.sortix.encryption.algorithm.pollard to javafx.fxml;
     exports ru.sortix.encryption.controller.pollard;
     opens ru.sortix.encryption.controller.pollard to javafx.fxml;
+    exports ru.sortix.encryption.algorithm.arithmetic;
+    opens ru.sortix.encryption.algorithm.arithmetic to javafx.fxml;
+    exports ru.sortix.encryption.controller.arithmetic;
+    opens ru.sortix.encryption.controller.arithmetic to javafx.fxml;
 }

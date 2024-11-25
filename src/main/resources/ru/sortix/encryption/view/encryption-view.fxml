@@ -42,6 +42,13 @@
                         <MenuItem onAction="#switchToPollard" text="Обычный" />
                         <MenuItem onAction="#switchToPollardLog" text="Логарифмирование" />
                     </Menu>
+                    <Menu text="Арифметические">
+                        <MenuItem onAction="#switchToAdditionAlgorithm" text="Сложение" />
+                        <MenuItem onAction="#switchToSubtractionAlgorithm" text="Вычитание" />
+                        <MenuItem onAction="#switchToMultiplicationAlgorithm" text="Умножение столбиком" />
+                        <MenuItem onAction="#switchToFastMultiplicationAlgorithm" text="Быстрое умножение столбиком" />
+                        <MenuItem onAction="#switchToDivisionAlgorithm" text="Деление" />
+                    </Menu>
                 </Menu>
             </MenuBar>
 

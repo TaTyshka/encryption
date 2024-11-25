@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.sortix.encryption.controller.arithmetic.ArithmeticController"
+      alignment="CENTER" spacing="10">
+
+    <!-- Поле ввода для числа U -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите число U:"/>
+        <TextField fx:id="inputU" promptText="Например, 1,2,3" />
+    </HBox>
+
+    <!-- Поле ввода для числа V -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите число V:"/>
+        <TextField fx:id="inputV" promptText="Например, 4,5,6" />
+    </HBox>
+
+    <!-- Поле ввода для основания системы счисления -->
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Введите основание b:"/>
+        <TextField fx:id="inputBase" promptText="Например, 10" />
+    </HBox>
+
+    <!-- Результат -->
+    <Label text="Результат:"/>
+    <TextArea fx:id="resultTextArea" prefRowCount="3" prefColumnCount="20" editable="false"/>
+
+    <!-- Кнопки для выполнения алгоритма -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Вычислить" onAction="#calculate"/>
+    </HBox>
+
+</VBox>

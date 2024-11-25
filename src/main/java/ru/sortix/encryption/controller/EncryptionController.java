@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import ru.sortix.encryption.EncryptionsApplication;
+import ru.sortix.encryption.algorithm.arithmetic.*;
 import ru.sortix.encryption.algorithm.euclid.BinaryEuclidAlgorithm;
 import ru.sortix.encryption.algorithm.euclid.ClassicEuclidAlgorithm;
 import ru.sortix.encryption.algorithm.euclid.ExtendedBinaryEuclidAlgorithm;
@@ -14,6 +15,7 @@ import ru.sortix.encryption.algorithm.probabilistic.FermatTest;
 import ru.sortix.encryption.algorithm.probabilistic.MillerRabinTest;
 import ru.sortix.encryption.algorithm.probabilistic.PrimeTest;
 import ru.sortix.encryption.algorithm.probabilistic.SolovayStrassenTest;
+import ru.sortix.encryption.controller.arithmetic.ArithmeticController;
 import ru.sortix.encryption.controller.euclid.EuclidEncryptionController;
 import ru.sortix.encryption.controller.probabilistic.PrimeTestController;
 
@@ -143,6 +145,52 @@ public class EncryptionController {
         loadEncryptionView("view/pollard/pollard-log-view.fxml");
         currentModeLabel.setText("Поллард. Дискретное логарифмирование");
     }
+
+    @FXML
+    private void switchToAdditionAlgorithm() {
+        ArithmeticController controller = (ArithmeticController) loadEncryptionView("view/arithmetic/arithmetic-view.fxml");
+        if (controller != null) {
+            controller.setAlgorithm(new AdditionAlgorithm());
+            currentModeLabel.setText("Сложение");
+        }
+    }
+
+    @FXML
+    private void switchToSubtractionAlgorithm() {
+        ArithmeticController controller = (ArithmeticController) loadEncryptionView("view/arithmetic/arithmetic-view.fxml");
+        if (controller != null) {
+            controller.setAlgorithm(new SubtractionAlgorithm());
+            currentModeLabel.setText("Вычитание");
+        }
+    }
+
+    @FXML
+    private void switchToMultiplicationAlgorithm() {
+        ArithmeticController controller = (ArithmeticController) loadEncryptionView("view/arithmetic/arithmetic-view.fxml");
+        if (controller != null) {
+            controller.setAlgorithm(new MultiplicationAlgorithm());
+            currentModeLabel.setText("Умножение столбиком");
+        }
+    }
+
+    @FXML
+    private void switchToFastMultiplicationAlgorithm() {
+        ArithmeticController controller = (ArithmeticController) loadEncryptionView("view/arithmetic/arithmetic-view.fxml");
+        if (controller != null) {
+            controller.setAlgorithm(new FastMultiplicationAlgorithm());
+            currentModeLabel.setText("Быстрое умножение столбиком");
+        }
+    }
+
+    @FXML
+    private void switchToDivisionAlgorithm() {
+        ArithmeticController controller = (ArithmeticController) loadEncryptionView("view/arithmetic/arithmetic-view.fxml");
+        if (controller != null) {
+            controller.setAlgorithm(new DivisionAlgorithm());
+            currentModeLabel.setText("Деление");
+        }
+    }
+
 
     // Метод для загрузки представления и получения контроллера
     private Object loadEncryptionView(String fxmlFilePath) {
